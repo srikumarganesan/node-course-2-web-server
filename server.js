@@ -24,12 +24,13 @@ app.use((req, res, next) => {
    next();
 });
 
-app.use((req, res, next) => {
-   res.render(`maintenance.hbs`, {
-       pageTitle: `Be Right Back....`,
-       maintenanceMsg: `We are upgrading our page and will be back soon :)`
-   });
-});
+// app.use((req, res, next) => {
+//    res.render(`maintenance.hbs`, {
+//        pageTitle: `Be Right Back....`,
+//        maintenanceMsg: `We are upgrading our page and will be back soon :)`
+//    });
+// });
+
 hbs.registerHelper(`getCurrentYear`,() => new Date().getFullYear());
 
 hbs.registerHelper(`screamIt`, (text) => text.toUpperCase());
@@ -54,6 +55,12 @@ app.get(`/about`, (req, res) => {
     res.render(`about.hbs`, {
         pageTitle: `About Page`
     });
+});
+
+app.get(`/projects`, (req,res) => {
+   res.render(`projects.hbs`, {
+       pageTitle: `Projects`
+   });
 });
 
 app.get(`/bad`, (req, res) => {
